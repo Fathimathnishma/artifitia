@@ -37,6 +37,9 @@ dependencies:
   gap: ^3.0.1
   shared_preferences: ^2.5.1
   smooth_page_indicator: ^1.2.0+3
+  animated_rating_stars: ^1.0.0
+  cached_network_image: ^3.4.1
+  carousel_slider: ^5.0.0
 
 
 dev_dependencies:

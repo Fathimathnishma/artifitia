@@ -1,4 +1,11 @@
+import 'package:artifitia/core/services/easy_navigation.dart';
 import 'package:artifitia/core/utils/app_colors%20.dart';
+import 'package:artifitia/core/utils/app_icons.dart';
+import 'package:artifitia/core/widget/ctextform.dart';
+import 'package:artifitia/features/auth/presentations/view/forgot_screen.dart';
+import 'package:artifitia/features/auth/presentations/view/signUp_screen.dart';
+import 'package:artifitia/features/auth/presentations/view/widget/circles.dart';
+import 'package:artifitia/features/home/presentation/view/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -11,78 +18,64 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool _obscureText = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(26),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Welcome\nBack!',
-                style: TextStyle(
-                  color: AppColors.black,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 36,
-                ),
+        padding: const EdgeInsets.only(
+          bottom: 26,
+          left: 26,
+          right: 26,
+          top: 46,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Welcome\nBack!',
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w700,
+                fontSize: 36,
               ),
-              Gap(36),
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Username or Email',
-                  prefixIcon: Icon(Icons.person),
-                  filled: true,
-                  fillColor: AppColors.greyShade.withOpacity(0.3),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide.none,
-                  ),
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your email';
-                  }
-                  return null;
-                },
-              ),
-              Gap(31),
+            ),
+            const Gap(36),
 
-              TextFormField(
-                obscureText: _obscureText,
-                decoration: InputDecoration(
-                  labelText: 'Password',
-                  prefixIcon: Icon(Icons.lock),
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                      _obscureText ? Icons.visibility_off : Icons.visibility,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        _obscureText = !_obscureText;
-                      });
-                    },
-                  ),
-                  filled: true,
-                  fillColor: AppColors.greyShade.withOpacity(0.3),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide.none,
-                  ),
+            // Email
+            CTextField(label: 'Username or Email', icon: Icons.person),
+            const Gap(31),
+
+            // Password
+            CTextField(
+              label: 'Password',
+              icon: Icons.lock,
+              obscureText: _obscureText,
+              suffix: IconButton(
+                icon: Icon(
+                  _obscureText ? Icons.visibility_off : Icons.visibility,
                 ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your password';
-                  }
-                  return null;
+                onPressed: () {
+                  setState(() {
+                    _obscureText = !_obscureText;
+                  });
                 },
               ),
-              Gap(11),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
+            ),
+            const Gap(11),
+
+            // Forgot Password
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                InkWell(
+                  onTap: () {
+                    EasyNavigation.push(
+                      context: context,
+                      page: const ForgotScreen(),
+                    );
+                  },
+                  child: Text(
                     'Forgot Password?',
                     style: TextStyle(
                       color: AppColors.primary,
@@ -90,17 +83,24 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontSize: 12,
                     ),
                   ),
-                ],
-              ),
-              Gap(51),
-              Container(
+                ),
+              ],
+            ),
+            const Gap(51),
+
+            // Login Button
+            InkWell(
+              onTap: () {
+                EasyNavigation.push(context: context, page: HomeScreen());
+              },
+              child: Container(
                 height: 55,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: AppColors.primary,
                   borderRadius: BorderRadius.circular(4),
                 ),
-                child: Center(
+                child: const Center(
                   child: Text(
                     'Login',
                     style: TextStyle(
@@ -111,8 +111,72 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+
+            const Gap(75),
+
+            // Divider
+            Center(
+              child: Text(
+                '- OR Continue with -',
+                style: TextStyle(
+                  color: AppColors.blackShade,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 12,
+                ),
+              ),
+            ),
+            const Gap(20),
+
+            // Social Login
+            Center(
+              child: SizedBox(
+                width: 185,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    BorderCircle(imagePath: AppIcons.googleIcon),
+                    BorderCircle(imagePath: AppIcons.appleIcon),
+                    BorderCircle(imagePath: AppIcons.facebookIcons),
+                  ],
+                ),
+              ),
+            ),
+            const Gap(25),
+
+            // Sign Up
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Create An Account ',
+                  style: TextStyle(
+                    color: AppColors.blackShade,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 12,
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    EasyNavigation.push(
+                      context: context,
+                      page: const SignUpScreen(),
+                    );
+                  },
+                  child: Text(
+                    'Sign Up',
+                    style: TextStyle(
+                      color: AppColors.primary,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 12,
+                      decoration: TextDecoration.underline,
+                      decorationColor: AppColors.primary,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

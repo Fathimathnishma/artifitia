@@ -3,7 +3,7 @@ class AppImages {
   static String imagePath = 'assets/images/';
   static String onbording = 'assets/image/onbording/';
 
-  static String eBookImage = '${imagePath}ebook_image.png';
+  static String profile = '${imagePath}profile.png';
   static String favouriteVideoImage = '${imagePath}favourite_video_img.png';
   static String courseImage = '${imagePath}course_image.png';
   static String letsLearnImage =
@@ -13,6 +13,8 @@ class AppImages {
   static String onBording1 = '${imagePath}onBording1.png';
   static String onBording2 = '${imagePath}onBording2.png';
   static String onBording3 = '${imagePath}onBording3.png';
-  static String onBording4 = '${onbording}onbording_4.png';
-  static String onBordingEmoji = '${onbording}onboading_imoji.png';
+
+  //banners& posters
+
+  static String banner = '${imagePath}banner.png';
 }

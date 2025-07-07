@@ -1,11 +1,9 @@
 import 'package:artifitia/core/services/easy_navigation.dart';
 import 'package:artifitia/core/utils/app_colors%20.dart';
-import 'package:artifitia/features/app_root/presentation/view/app_root.dart';
 import 'package:artifitia/features/auth/presentations/view/login_screen.dart';
 import 'package:artifitia/features/on_boarding/data/onboarding_local_data.dart';
 import 'package:artifitia/features/on_boarding/presentation/view/widgets/onboarding_frame.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -54,7 +52,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               child: Text(
                 'skip',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: AppColors.black,
                   fontWeight: FontWeight.w600,
                   fontSize: 16,
                 ),

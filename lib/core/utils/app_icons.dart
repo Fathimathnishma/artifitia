@@ -34,42 +34,16 @@ class AppIcons {
   static String tagIcon = '${courseDetails}Tag.png';
   //  NAVIGATOR BAR
 
-  static String whatsAppIcons = '${iconPath}logos_whatsapp-icon_review.png';
-  static String gmailIcons = '${iconPath}gmail_reivew_icons.png';
-  static String callExectiveIcons = '${iconPath}call_executive_icon.png';
-  static String mobileIcon = '${iconPath}mobile.png';
+  static String facebookIcons = '${iconPath}facebook.png';
+  static String appleIcon = '${iconPath}apple.png';
   static String googleIcon = '${iconPath}google.png';
 
   // icons
   static String searchIcon = '${iconPath}search_course_icon.png';
-  static String calenderIcon = '${iconPath}couser_calendar_icon.png';
-  static String eyeclosed = '${iconPath}basil_eye-closed-solid.png';
-
-  static String accoutShareApp = '${account}account_share.png';
-  static String accoutRateUs = '${account}acoount_rate.png';
-  static String accoutAboutApp = '${account}account_abouts.png';
-  static String accouthelpAndSupportApp = '${account}account_help&support.png';
-  static String accountTeamsConditon = '${account}account_tearm&condition.png';
-  static String accountDelete = '${account}account_delete.png';
-  static String accountLogout = '${account}account_logout.png';
-  static String accountPravacyPolicy = 'assets/icons/privacay_policy_icon.png';
-
-  static String accountProfileEdit = '${account}edit_profile.png';
+  static String micro = '${iconPath}micro.png';
+  static String sort = '${iconPath}sort.png';
+  static String menu = '${iconPath}menu.png';
+  static String filter = '${iconPath}filter.png';
 
   // COURES DETAILS ICONS
-  static String vidoeIcon = '${iconPath}video_icon.png';
-  static String timeIcon = '${iconPath}time_icon.png';
-  static String videoPlayCenter = '${iconPath}video_play_center_icon.png';
-  static String downlodSudyMaterial =
-      '${iconPath}downlod_study_materiel_icons.png';
-  static String addProfilePic = '${iconPath}add_image_icon.png';
-  static String popLeftIcon = '${iconPath}left_pop_icon.png';
-
-  //   LOCAL
-  static String banner = 'assets/icons/local/banner_local.png';
-  static String lesson1 = 'assets/icons/local/lesson_01.png';
-  static String lesson2 = 'assets/icons/local/lesson_02.png';
-  static String lesson3 = 'assets/icons/local/lesson_03.png';
-
-  //  assets\icons\local\banner_local.png
 }
