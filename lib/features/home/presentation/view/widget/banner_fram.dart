@@ -26,7 +26,6 @@ class _MainBannerState extends State<MainBanner> {
           itemCount: bannerList.length,
           options: CarouselOptions(
             height: 189,
-
             viewportFraction: 1.03,
             autoPlay: bannerList.length > 1,
             autoPlayInterval: const Duration(seconds: 5),
@@ -47,9 +46,7 @@ class _MainBannerState extends State<MainBanner> {
                 child: Stack(
                   fit: StackFit.expand,
                   children: [
-                    // Background image
                     Image.asset(bannerList[index], fit: BoxFit.cover),
-                    // Overlay content
                     Padding(
                       padding: const EdgeInsets.all(9.0),
                       child: Column(
@@ -76,10 +73,6 @@ class _MainBannerState extends State<MainBanner> {
                           Container(
                             height: 32,
                             width: 100,
-                            // padding: const EdgeInsets.symmetric(
-                            //   horizontal: 16,
-                            //   vertical: 8,
-                            // ),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(6),
                               border: Border.all(color: Colors.white, width: 1),
@@ -141,96 +134,96 @@ class _MainBannerState extends State<MainBanner> {
   }
 }
 
-// class NewBanner extends StatefulWidget {
-//   const NewBanner({super.key});
+class NewBanner extends StatefulWidget {
+  const NewBanner({super.key});
 
-//   @override
-//   State<NewBanner> createState() => _NewBannerState();
-// }
+  @override
+  State<NewBanner> createState() => _NewBannerState();
+}
 
-// class _NewBannerState extends State<NewBanner> {
+class _NewBannerState extends State<NewBanner> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      height: 250,
+      margin: const EdgeInsets.symmetric(horizontal: 8),
+      child: Stack(
+        children: [
+          ClipRRect(
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(8),
+              topRight: Radius.circular(8),
+            ),
+            child: Image.asset(
+              AppImages.banner2,
+              height: 200,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Positioned(
+            top: 200,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'New Arrivals',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       height: 270,
-//           margin: const EdgeInsets.symmetric(horizontal: 8),
-//           child: Column(
-
-//             children: [
-//               // Background image
-//               Image.asset(
-//                 height: 200,
-//                 AppImages.banner2, fit: BoxFit.cover),
-//               // Overlay content
-//               Padding(
-//                 padding: const EdgeInsets.all(9.0),
-//                 child: Column(
-//                   crossAxisAlignment: CrossAxisAlignment.start,
-//                   mainAxisAlignment: MainAxisAlignment.center,
-//                   children: [
-//                     const Text(
-//                       'New Arrivals  ',
-//                       style: TextStyle(
-//                         color: Colors.white,
-//                         fontSize: 20,
-//                         fontWeight: FontWeight.w500,
-//                       ),
-//                     ),
-//                     const SizedBox(height: 2),
-//                     Row(
-//                       children: [
-//                         const Text(
-//                           'Now in (product)\nAll colours',
-//                           style: TextStyle(
-//                             color: Colors.white70,
-//                             fontSize: 16,
-//                              fontWeight: FontWeight.w400,
-//                           ),
-//                         ),
-//                            Container(
-//                                 height: 28,
-//                                 padding: const EdgeInsets.symmetric(
-//                                   horizontal: 10,
-//                                 ),
-//                                 decoration: BoxDecoration(
-//                                   borderRadius: BorderRadius.circular(6),
-//                                   color: AppColors.primary,
-//                                   border: Border.all(
-//                                     color: Colors.white,
-//                                     width: 1,
-//                                   ),
-//                                 ),
-//                                 child: Row(
-//                                   children: const [
-//                                     Text(
-//                                       'View All',
-//                                       style: TextStyle(
-//                                         color: Colors.white,
-//                                         fontSize: 11,
-//                                         fontWeight: FontWeight.w500,
-//                                       ),
-//                                     ),
-//                                     SizedBox(width: 4),
-//                                     Icon(
-//                                       Icons.arrow_forward,
-//                                       size: 14,
-//                                       color: Colors.white,
-//                                     ),
-//                                   ],
-//                                 ),
-//                               ),
-//                       ],
-//                     ),
-
-//                   ],
-//                 ),
-//               ),
-//             ],
-//           ),
-//         );
-//   }
-// }
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Summer’ 25 Collections',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    Container(
+                      height: 28,
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(6),
+                        color: AppColors.primary,
+                        border: Border.all(color: Colors.white, width: 1),
+                      ),
+                      child: Row(
+                        children: const [
+                          Text(
+                            'View All',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 11,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SizedBox(width: 4),
+                          Icon(
+                            Icons.arrow_forward,
+                            size: 14,
+                            color: Colors.white,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
 
 class SponcerBanner extends StatefulWidget {
   const SponcerBanner({super.key});
@@ -242,49 +235,61 @@ class SponcerBanner extends StatefulWidget {
 class _SponcerBannerState extends State<SponcerBanner> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 374,
-      margin: const EdgeInsets.symmetric(horizontal: 8),
-      child: Column(
-        children: [
-          Text(
-            'Sponserd ',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 20,
-              fontWeight: FontWeight.w500,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+      child: Container(
+        height: 374,
+        color: Colors.white,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Sponsored',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+              ),
             ),
-          ),
-          Image.asset(height: 292, AppImages.banner2, fit: BoxFit.cover),
-          // Overlay content
-          Padding(
-            padding: const EdgeInsets.all(9.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(height: 2),
-                Row(
-                  children: [
-                    const Text(
-                      'up to 50% Off  ',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+            const SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: Stack(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(8),
+                      bottomLeft: Radius.circular(8),
                     ),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      size: 14,
+                    child: Image.asset(
+                      AppImages.sponcer,
+                      height: 292,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text(
+                    'Up to 50% Off',
+                    style: TextStyle(
                       color: Colors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
                     ),
-                  ],
-                ),
-              ],
+                  ),
+                  Icon(Icons.arrow_forward_ios, size: 18, color: Colors.black),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

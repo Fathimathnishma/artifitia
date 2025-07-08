@@ -171,7 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Gap(16),
 
-              SponcerBanner(),
+              MainBanner(),
               Gap(16),
               LimitedOfferBox(
                 backgroundColor: Colors.blue, // or AppColors.blue
@@ -191,6 +191,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
 
                 child: ListView.separated(
+                  shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return Padding(
@@ -198,8 +199,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: ProductFrame(
                         height: 241,
                         width: 170,
+                        isTitleBold: true,
                         rating: 4.8,
-                        imageUrl: AppImages.beauty,
+                        imageUrl: AppImages.sponcer,
                         title: "Women Printed Kurta",
                         description:
                             "Neque porro quisquam est qui dolorem ipsum quia",
@@ -207,22 +209,23 @@ class _HomeScreenState extends State<HomeScreen> {
                         originalPrice: 2499,
                         discount: "40%Off",
                         ratingCount: 56890,
-                        imgHeight: 124,
+                        imgHeight: 120,
                       ),
                     );
                   },
                   separatorBuilder: (context, index) {
-                    return Gap(12);
+                    return Gap(8);
                   },
                   itemCount: 6,
                 ),
               ),
+              Gap(13),
               Container(
-                height: 84,
+                height: 85,
                 width: double.infinity,
-                padding: const EdgeInsets.all(12),
+                padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Colors.pink,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Row(
@@ -241,7 +244,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          SizedBox(height: 4),
+                          SizedBox(height: 2),
                           Text(
                             "We make sure you get the offer you need at best prices",
                             style: TextStyle(
@@ -374,16 +377,16 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Gap(25),
               LimitedOfferBox(
-                backgroundColor: AppColors.pink,
+                backgroundColor: AppColors.pink2,
                 title: "Trending Products ",
                 leadingIcon: Icons.calendar_month,
                 countdownText: "Last Date 29/02/22",
               ),
               Gap(8),
               Container(
-                height: 186,
+                height: 193,
                 decoration: BoxDecoration(
-                  color: AppColors.backGroudColor.withOpacity(0.99),
+                  color: AppColors.pink.withOpacity(0.99),
                   borderRadius: BorderRadius.circular(10),
                 ),
 
@@ -394,22 +397,21 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: const EdgeInsets.only(left: 5),
                       child: ProductFrame(
                         height: 186,
-                        width: 142,
-                        rating: 4.8,
-                        imageUrl: AppImages.beauty,
+                        width: 143,
+                        isTitleBold: false,
+                        imageUrl: AppImages.banner2,
                         title: "Women Printed Kurta",
                         description:
                             "Neque porro quisquam est qui dolorem ipsum quia",
                         currentPrice: 1500,
                         originalPrice: 2499,
                         discount: "40%Off",
-                        ratingCount: 56890,
-                        imgHeight: 100,
+                        imgHeight: 96,
                       ),
                     );
                   },
                   separatorBuilder: (context, index) {
-                    return Gap(12);
+                    return Gap(0);
                   },
                   itemCount: 6,
                 ),

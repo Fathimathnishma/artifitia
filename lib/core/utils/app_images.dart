@@ -18,9 +18,11 @@ class AppImages {
   //banners& posters
 
   static String banner = '${imagePath}banner.png';
+  static String banner2 = '${imagePath}banner2.png';
   static String sploffer = '${imagePath}splOffer.png';
   static String sparkling = '${imagePath}sparkling.png';
   static String heels = '${imagePath}heels.png';
+  static String sponcer = '${imagePath}sponcer.png';
 
   //CATEGORY
 

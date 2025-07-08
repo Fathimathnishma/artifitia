@@ -11,6 +11,7 @@ class AppColors {
   static Color greyShade = const Color(0xFF808488);
   static Color smooth = const Color(0xFF17223B);
   static Color pink = const Color(0xFFFFA3B3);
+  static Color pink2 = const Color(0xFFFD6E87);
   static Color blue = const Color(0xFF4392F9);
   static Color dicClr = const Color(0xFFFE735C);
 }
