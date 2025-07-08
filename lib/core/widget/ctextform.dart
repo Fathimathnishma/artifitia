@@ -11,6 +11,8 @@ class CTextField extends StatelessWidget {
   final bool hasBorder;
   final double fontSize;
   final String? Function(String?)? validator;
+  final Color? color;
+  final Color? iconColor;
 
   const CTextField({
     super.key,
@@ -23,38 +25,45 @@ class CTextField extends StatelessWidget {
     this.hasBorder = true,
     this.fontSize = 12,
     this.validator,
+    this.color,
+    this.iconColor,
   });
 
   @override
   Widget build(BuildContext context) {
+    final baseColor = color ?? AppColors.blackShade.withOpacity(0.4);
+
     final borderStyle =
         hasBorder
             ? OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: AppColors.blackShade, width: 1),
+              borderSide: BorderSide(color: baseColor, width: 1),
             )
             : InputBorder.none;
 
     return TextFormField(
-      cursorColor: AppColors.blackShade,
+      cursorColor: baseColor,
       obscureText: obscureText,
       controller: controller,
       validator: validator,
-      style: TextStyle(fontSize: fontSize, color: AppColors.blackShade),
+      style: TextStyle(fontSize: fontSize, color: baseColor),
       decoration: InputDecoration(
         labelText: label,
         labelStyle: TextStyle(
           fontSize: fontSize,
-          color: AppColors.blackShade, // fixes purple label color
+          color: iconColor ?? AppColors.blackShade.withOpacity(0.4),
         ),
-        prefixIcon: Icon(icon, color: AppColors.blackShade),
+        prefixIcon: Icon(
+          icon,
+          color: iconColor ?? AppColors.blackShade.withOpacity(0.4),
+        ),
         suffixIcon: suffix,
         filled: filled,
-        fillColor: AppColors.blackShade.withOpacity(0.2),
+        fillColor: color ?? baseColor.withOpacity(0.2),
         enabledBorder: borderStyle,
         focusedBorder: borderStyle,
         border: borderStyle,
-        focusColor: AppColors.black, // optional
+        focusColor: baseColor,
       ),
     );
   }

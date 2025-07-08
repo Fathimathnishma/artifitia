@@ -1,5 +1,7 @@
+import 'package:artifitia/core/utils/app_colors%20.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_rating_stars/animated_rating_stars.dart';
+import 'package:gap/gap.dart';
 
 class ProductFrame extends StatelessWidget {
   final double rating;
@@ -26,63 +28,77 @@ class ProductFrame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 241,
       width: 170,
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.all(6),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.purple.shade200),
+        color: Colors.white,
+        //  border: Border.all(color: Colors.purple.shade200),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Image container
+          // Image
           Container(
-            height: 124,
-            width: 170,
+            height: 110,
+            width: double.infinity,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage(imageUrl),
+                image: AssetImage(imageUrl),
                 fit: BoxFit.cover,
               ),
               borderRadius: BorderRadius.circular(8),
             ),
           ),
-          const SizedBox(height: 8),
+
+          const SizedBox(height: 6),
+
+          // Title
           Text(
             title,
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
           ),
+
+          // Description
           Text(
             description,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
-            style: const TextStyle(fontSize: 12),
+            style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
           ),
+
           const SizedBox(height: 4),
+
+          // Current Price
           Text(
             "₹$currentPrice",
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
           ),
+
+          // Original Price + Discount
           Row(
             children: [
               Text(
                 "₹$originalPrice",
-                style: const TextStyle(
+                style: TextStyle(
                   decoration: TextDecoration.lineThrough,
                   fontSize: 12,
+                  color: AppColors.greyShade,
+                  decorationColor: AppColors.greyShade.withOpacity(0.8),
                 ),
               ),
               const SizedBox(width: 6),
               Text(
                 discount,
-                style: const TextStyle(
-                  color: Colors.orange,
-                  fontSize: 12,
-                ),
+                style: TextStyle(color: AppColors.dicClr, fontSize: 10),
               ),
             ],
           ),
-          const SizedBox(height: 4),
+
+          Gap(4),
           Row(
             children: [
               AnimatedRatingStars(
@@ -91,7 +107,7 @@ class ProductFrame extends StatelessWidget {
                 maxRating: 5,
                 filledColor: Colors.amber,
                 emptyColor: Colors.grey.shade300,
-                starSize: 20,
+                starSize: 10,
                 readOnly: true,
                 onChanged: (double rating) {},
                 customFilledIcon: Icons.star,
@@ -101,7 +117,7 @@ class ProductFrame extends StatelessWidget {
               const SizedBox(width: 6),
               Text(
                 "$ratingCount",
-                style: const TextStyle(fontSize: 12),
+                style: TextStyle(fontSize: 10, color: AppColors.greyShade),
               ),
             ],
           ),
