@@ -1,117 +1,106 @@
-import 'package:artifitia/core/utils/app_colors%20.dart';
-import 'package:artifitia/core/utils/app_icons.dart';
+import 'package:artifitia/features/product/data/product_model.dart';
+import 'package:artifitia/features/product/view/product_detail_screen.dart';
+import 'package:artifitia/features/profile/profile_screen.dart';
+import 'package:artifitia/features/home/presentation/view/home_screen.dart';
+import 'package:artifitia/features/wishlist/presentation/view/wishlist_screens.dart';
 import 'package:flutter/material.dart';
 
-import '../provider/app_root_provider.dart';
-
 class AppRoot extends StatefulWidget {
-  const AppRoot({super.key, this.currentIndex = 0});
-  final int currentIndex;
+  const AppRoot({super.key});
 
   @override
   State<AppRoot> createState() => _AppRootState();
 }
 
 class _AppRootState extends State<AppRoot> {
-  List<Widget> get _pages => <Widget>[
-    // HomeScreen(),
-    // FavoriteScreen(),
-    // MyCousersScreen(),
-    // NewsScreen(),
-    // AccountScreen(),
+  int _selectedIndex = 0;
+
+  final List<Widget> _pages = [
+    HomeScreen(),
+    WishListScreen(),
+    HomeScreen(), // Center (Cart) Page
+    ProfileDetailsScreen(), // Search (change as needed)
+    ProductDetailPage(product: product[1]), // Settings
   ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    // return Consumer<AppRootProvider>(
-    //   builder: (context, appRootState, child) {
-    final selectedIndex = 1;
-    // appRootState.selectedBarItemIndex;
     return Scaffold(
-      // backgroundColor: Colors.transparent,
-      body: Center(child: _pages.elementAt(selectedIndex)),
-      resizeToAvoidBottomInset: false,
+      body: SafeArea(child: _pages[_selectedIndex]),
       extendBody: true,
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(113),
-          child: SizedBox(
+      bottomNavigationBar: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          Container(
             height: 64,
-            child: BottomNavigationBar(
-              // landscapeLayout: BottomNavigationBarLandscapeLayout.linear,
-              selectedLabelStyle: TextStyle(
-                fontSize: 11,
-                fontWeight: FontWeight.w700,
-              ),
-              unselectedLabelStyle: TextStyle(
-                color: AppColors.black.withOpacity(0.5),
-                fontSize: 11,
-                fontWeight: FontWeight.w700,
-              ),
-              backgroundColor: AppColors.greyShade,
-              elevation: 25,
-              type: BottomNavigationBarType.fixed,
-              items: <BottomNavigationBarItem>[
-                BottomNavigationBarItem(
-                  icon: Image.asset(
-                    selectedIndex == 0
-                        ? AppIcons.bottomBarAtiveHome
-                        : AppIcons.bottomBarInativeHome,
-                    height: 22,
-                    width: 22,
-                  ),
-                  label: 'Home',
-                ),
-                BottomNavigationBarItem(
-                  icon: Image.asset(
-                    selectedIndex == 1
-                        ? AppIcons.bottomBarAtiveFavorate
-                        : AppIcons.bottomBarInativeFavorate,
-                    height: 22,
-                    width: 22,
-                  ),
-                  label: 'Favorites',
-                ),
-                BottomNavigationBarItem(
-                  icon: Image.asset(
-                    selectedIndex == 2
-                        ? AppIcons.bottomBarAtiveCourses
-                        : AppIcons.bottomBarAtiveFavorate,
-                    height: 22,
-                    width: 22,
-                  ),
-                  label: 'My Courses',
-                ),
-                BottomNavigationBarItem(
-                  icon: Image.asset(
-                    selectedIndex == 3
-                        ? AppIcons.bottomBarAtiveNews
-                        : AppIcons.bottomBarInativeNews,
-                    height: 22,
-                    width: 22,
-                  ),
-                  label: 'News',
-                ),
-                BottomNavigationBarItem(
-                  icon: Image.asset(
-                    selectedIndex == 4
-                        ? AppIcons.bottomBarAtiveAccount
-                        : AppIcons.bottomBarInativeAccount,
-                    height: 22,
-                    width: 22,
-                  ),
-                  label: 'Account',
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black12,
+                  blurRadius: 6,
+                  offset: Offset(0, -1),
                 ),
               ],
-              currentIndex: selectedIndex,
-              // onTap: appRootState.onItemTapped,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                _buildNavItem(Icons.home, 'Home', 0),
+                _buildNavItem(Icons.favorite_border, 'Wishlist', 1),
+                const SizedBox(width: 48), // Spacer for center FAB
+                _buildNavItem(Icons.search, 'Search', 3),
+                _buildNavItem(Icons.settings, 'Setting', 4),
+              ],
             ),
           ),
-        ),
+
+          /// Center Cart Button
+          Positioned(
+            bottom: 18,
+            child: FloatingActionButton(
+              onPressed: () => _onItemTapped(2),
+              backgroundColor: Colors.white,
+              shape: const CircleBorder(),
+              elevation: 6,
+              child: Icon(Icons.shopping_cart_outlined, color: Colors.red),
+            ),
+          ),
+        ],
       ),
     );
-    //     },
-    //   );
+  }
+
+  Widget _buildNavItem(IconData icon, String label, int index) {
+    final isSelected = _selectedIndex == index;
+    return GestureDetector(
+      onTap: () => _onItemTapped(index),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            icon,
+            size: 24,
+            color: isSelected ? Colors.red : Colors.grey.shade600,
+          ),
+          const SizedBox(height: 4),
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 11,
+              fontWeight: FontWeight.w600,
+              color: isSelected ? Colors.red : Colors.grey.shade600,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

@@ -1,7 +1,7 @@
-import 'package:artifitia/core/services/easy_navigation.dart';
-import 'package:artifitia/core/utils/app_colors%20.dart';
-import 'package:artifitia/core/utils/app_icons.dart';
-import 'package:artifitia/core/widget/ctextform.dart';
+import 'package:artifitia/general/core/services/easy_navigation.dart';
+import 'package:artifitia/general/core/utils/app_colors%20.dart';
+import 'package:artifitia/general/core/utils/app_icons.dart';
+import 'package:artifitia/general/core/widget/ctextform.dart';
 import 'package:artifitia/features/auth/presentations/view/login_screen.dart';
 import 'package:artifitia/features/auth/presentations/view/widget/circles.dart';
 import 'package:flutter/material.dart';

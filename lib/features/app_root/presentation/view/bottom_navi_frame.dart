@@ -1,4 +1,4 @@
-import 'package:artifitia/core/utils/app_colors%20.dart';
+import 'package:artifitia/general/core/utils/app_colors%20.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -34,14 +34,10 @@ class BottomNaviFrame extends StatelessWidget {
             Container(
               width: 45,
               padding: const EdgeInsets.symmetric(vertical: 1.5),
-              // decoration: BoxDecoration(
-              //   color: selectIndex == index ? AppColors.secondaryColor : null,
-              //   borderRadius: BorderRadius.circular(30),
-              // ),
+
               child: ImageIcon(
                 AssetImage(icon),
-                color:
-                    selectIndex == index ? AppColors.secondary : Colors.white,
+                color: selectIndex == index ? AppColors.primary : Colors.white,
                 size: iconSize,
               ),
             ),

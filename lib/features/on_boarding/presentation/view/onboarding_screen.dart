@@ -1,5 +1,5 @@
-import 'package:artifitia/core/services/easy_navigation.dart';
-import 'package:artifitia/core/utils/app_colors%20.dart';
+import 'package:artifitia/general/core/services/easy_navigation.dart';
+import 'package:artifitia/general/core/utils/app_colors%20.dart';
 import 'package:artifitia/features/auth/presentations/view/login_screen.dart';
 import 'package:artifitia/features/on_boarding/data/onboarding_local_data.dart';
 import 'package:artifitia/features/on_boarding/presentation/view/widgets/onboarding_frame.dart';

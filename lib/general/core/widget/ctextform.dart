@@ -1,9 +1,9 @@
-import 'package:artifitia/core/utils/app_colors%20.dart';
+import 'package:artifitia/general/core/utils/app_colors%20.dart';
 import 'package:flutter/material.dart';
 
 class CTextField extends StatelessWidget {
   final String label;
-  final IconData icon;
+  final IconData? icon;
   final bool obscureText;
   final TextEditingController? controller;
   final Widget? suffix;
@@ -17,7 +17,7 @@ class CTextField extends StatelessWidget {
   const CTextField({
     super.key,
     required this.label,
-    required this.icon,
+    this.icon,
     this.obscureText = false,
     this.controller,
     this.suffix,

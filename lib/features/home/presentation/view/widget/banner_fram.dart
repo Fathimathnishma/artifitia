@@ -1,5 +1,5 @@
-import 'package:artifitia/core/utils/app_colors%20.dart';
-import 'package:artifitia/core/utils/app_images.dart';
+import 'package:artifitia/general/core/utils/app_colors%20.dart';
+import 'package:artifitia/general/core/utils/app_images.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -144,9 +144,11 @@ class NewBanner extends StatefulWidget {
 class _NewBannerState extends State<NewBanner> {
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     return Container(
       color: Colors.white,
-      height: 250,
+      height: 270,
       margin: const EdgeInsets.symmetric(horizontal: 8),
       child: Stack(
         children: [
@@ -187,6 +189,7 @@ class _NewBannerState extends State<NewBanner> {
                         fontWeight: FontWeight.w400,
                       ),
                     ),
+                    SizedBox(width: width * 0.1),
                     Container(
                       height: 28,
                       padding: const EdgeInsets.symmetric(horizontal: 10),

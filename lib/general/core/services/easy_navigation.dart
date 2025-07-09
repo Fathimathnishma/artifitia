@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../main.dart';
+import '../../../../main.dart';
 
 class EasyNavigation {
   static Future<void> push({
@@ -9,10 +9,9 @@ class EasyNavigation {
     // PageTransitionType type = PageTransitionType.fade,
   }) async {
     await Navigator.push(
-        navigatorKey.currentState?.context ?? context,
-        MaterialPageRoute(
-          builder: (context) => page,
-        ));
+      navigatorKey.currentState?.context ?? context,
+      MaterialPageRoute(builder: (context) => page),
+    );
   }
 
   static Future<void> pushReplacement({
@@ -21,15 +20,12 @@ class EasyNavigation {
     // PageTransitionType type = PageTransitionType.fade,
   }) async {
     await Navigator.pushReplacement(
-        navigatorKey.currentState?.context ?? context,
-        MaterialPageRoute(
-          builder: (context) => page,
-        ));
+      navigatorKey.currentState?.context ?? context,
+      MaterialPageRoute(builder: (context) => page),
+    );
   }
 
-  static Future<void> pop({
-    required BuildContext context,
-  }) async {
+  static Future<void> pop({required BuildContext context}) async {
     Navigator.of(navigatorKey.currentState?.context ?? context).pop();
   }
 

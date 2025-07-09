@@ -1,6 +1,6 @@
 import 'package:artifitia/features/on_boarding/presentation/view/onboarding_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:artifitia/core/utils/app_icons.dart';
+import 'package:artifitia/general/core/utils/app_icons.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

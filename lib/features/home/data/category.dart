@@ -1,4 +1,4 @@
-import 'package:artifitia/core/utils/app_images.dart';
+import 'package:artifitia/general/core/utils/app_images.dart';
 
 class CategoryItem {
   String? id;

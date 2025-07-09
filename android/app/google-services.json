@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "68259458909",
+    "project_id": "crudfile-246d7",
+    "storage_bucket": "crudfile-246d7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:68259458909:android:79ddb343e6e74bd9a382b4",
+        "android_client_info": {
+          "package_name": "com.example.artifitia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnlocNS2BDwQSW1bz4L836bIUdYtTKNbg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

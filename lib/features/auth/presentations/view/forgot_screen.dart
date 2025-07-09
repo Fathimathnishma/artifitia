@@ -1,5 +1,5 @@
-import 'package:artifitia/core/utils/app_colors%20.dart';
-import 'package:artifitia/core/widget/ctextform.dart';
+import 'package:artifitia/general/core/utils/app_colors%20.dart';
+import 'package:artifitia/general/core/widget/ctextform.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 

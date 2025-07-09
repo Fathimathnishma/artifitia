@@ -1,11 +1,12 @@
-import 'package:artifitia/core/utils/app_colors%20.dart';
-import 'package:artifitia/core/utils/app_icons.dart';
-import 'package:artifitia/core/utils/app_images.dart';
-import 'package:artifitia/core/widget/ctextform.dart';
+import 'package:artifitia/general/core/utils/app_colors%20.dart';
+import 'package:artifitia/general/core/utils/app_icons.dart';
+import 'package:artifitia/general/core/utils/app_images.dart';
+import 'package:artifitia/general/core/widget/ctextform.dart';
 import 'package:artifitia/features/home/data/category.dart';
 import 'package:artifitia/features/home/presentation/view/widget/banner_fram.dart';
 import 'package:artifitia/features/home/presentation/view/widget/limited_offer.dart';
 import 'package:artifitia/features/home/presentation/view/widget/product_frame.dart';
+import 'package:artifitia/features/product/data/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -179,7 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 leadingIcon: Icons.alarm,
                 countdownText: '22h 55m 20s remaining',
                 onTap: () {
-                  print("Clicked empty box!");
+                  //  print("Clicked empty box!");
                 },
               ),
               Gap(16),
@@ -200,15 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: 241,
                         width: 170,
                         isTitleBold: true,
-                        rating: 4.8,
-                        imageUrl: AppImages.sponcer,
-                        title: "Women Printed Kurta",
-                        description:
-                            "Neque porro quisquam est qui dolorem ipsum quia",
-                        currentPrice: 1500,
-                        originalPrice: 2499,
-                        discount: "40%Off",
-                        ratingCount: 56890,
+                        product: product[index],
                         imgHeight: 120,
                       ),
                     );
@@ -225,7 +218,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: double.infinity,
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: Colors.pink,
+                  // color: Colors.pink,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Row(
@@ -384,9 +377,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Gap(8),
               Container(
-                height: 193,
+                height: 187,
                 decoration: BoxDecoration(
-                  color: AppColors.pink.withOpacity(0.99),
+                  color: AppColors.backGroudColor.withOpacity(0.99),
                   borderRadius: BorderRadius.circular(10),
                 ),
 
@@ -399,14 +392,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: 186,
                         width: 143,
                         isTitleBold: false,
-                        imageUrl: AppImages.banner2,
-                        title: "Women Printed Kurta",
-                        description:
-                            "Neque porro quisquam est qui dolorem ipsum quia",
-                        currentPrice: 1500,
-                        originalPrice: 2499,
-                        discount: "40%Off",
-                        imgHeight: 96,
+                        showRating: false,
+                        product: product[index],
+                        imgHeight: 90,
                       ),
                     );
                   },
@@ -420,6 +408,7 @@ class _HomeScreenState extends State<HomeScreen> {
               NewBanner(),
               Gap(16),
               SponcerBanner(),
+              Gap(50),
             ],
           ),
         ),

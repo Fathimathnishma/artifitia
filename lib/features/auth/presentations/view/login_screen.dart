@@ -1,7 +1,8 @@
-import 'package:artifitia/core/services/easy_navigation.dart';
-import 'package:artifitia/core/utils/app_colors%20.dart';
-import 'package:artifitia/core/utils/app_icons.dart';
-import 'package:artifitia/core/widget/ctextform.dart';
+import 'package:artifitia/general/core/services/easy_navigation.dart';
+import 'package:artifitia/general/core/utils/app_colors%20.dart';
+import 'package:artifitia/general/core/utils/app_icons.dart';
+import 'package:artifitia/general/core/widget/ctextform.dart';
+import 'package:artifitia/features/app_root/presentation/view/app_root.dart';
 import 'package:artifitia/features/auth/presentations/view/forgot_screen.dart';
 import 'package:artifitia/features/auth/presentations/view/signUp_screen.dart';
 import 'package:artifitia/features/auth/presentations/view/widget/circles.dart';
@@ -91,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
             // Login Button
             InkWell(
               onTap: () {
-                EasyNavigation.push(context: context, page: HomeScreen());
+                EasyNavigation.push(context: context, page: AppRoot());
               },
               child: Container(
                 height: 55,
